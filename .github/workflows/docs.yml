@@ -26,8 +26,15 @@ jobs:
       - run: pip install -r requirements.txt   # MkDocs и тема с зафиксированными версиями
 
       # ЗАДАНИЕ 2: добавьте здесь шаг проверки текста линтером Vale
+      - name: Проверка текста (Vale)
+        run: |
+          V=3.24.0
+          URL=https://github.com/errata-ai/vale/releases/download
+          curl -sSL $URL/v$V/vale_${V}_Linux_64-bit.tar.gz | tar xz vale
+          ./vale docs
 
-      - run: mkdocs build             # ЗАДАНИЕ 2: включите строгий режим сборки
+
+      - run: mkdocs build --strict             # ЗАДАНИЕ 2: включите строгий режим сборки
 
       - uses: actions/upload-pages-artifact@v5   # упаковать папку site/ как артефакт сборки
         with:
