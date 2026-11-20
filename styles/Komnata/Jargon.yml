@@ -1,1 +1,6 @@
-
+extends: substitution
+message: "Рекомендуем заменить жаргонные выражения"
+level: warning                    # error блокирует слияние, warning только сообщает
+ignorecase: true
+swap:
+  фича[а-яё]*: возможность
