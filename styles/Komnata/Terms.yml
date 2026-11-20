@@ -3,7 +3,7 @@
 # [а-яё]* в конце ловит любые окончания: юзер, юзера, юзеры...
 extends: substitution
 message: "Используйте «%s» вместо «%s»."
-level: warning                    # error блокирует слияние, warning только сообщает
+level: error                    # error блокирует слияние, warning только сообщает
 ignorecase: true
 swap:
   юзер[а-яё]*: пользователь
